@@ -21,6 +21,10 @@ class Set2Set(Aggregation):
             self.out_channels, self.in_channels, num_layers=n_layers, **kwargs
         )
         self.reset_parameters()
+        
+        self.hparams["in_channels"] = in_channels
+        self.hparams["processing_steps"] = processing_steps
+        self.hparams["n_layers"] = n_layers
 
     def reset_parameters(self):
         self.lstm.reset_parameters()
