@@ -7,16 +7,17 @@ See `test_set2set.py` for example usage, which is broadly the same as typical Ch
 The Set2Set aggregation operator performs the following operations:
 
 ```math
-    \mathbf{q}_t = \mathrm{LSTM}(\mathbf{q}^{*}_{t-1})\\
-
-    \alpha_{i,t} = \mathrm{softmax}(\mathbf{h}_v \cdot \mathbf{q}_t)\\
-
-    \mathbf{r}_t = \sum_{i=1}^N \alpha_{i,t} \mathbf{h}_v\\
-
-    \mathbf{q}^{*}_t = \mathbf{q}_t \, \Vert \, \mathbf{r}_t,\\
+\begin{matrix}
+\mathbf{q}_t = \mathrm{LSTM}(\mathbf{q}^{*}_{t-1}) \\  
+\alpha_{i,t} = \mathrm{softmax}(\mathbf{h}_v \cdot \mathbf{q}_t) \\  
+\mathbf{r}_t = \sum_{i=1}^N \alpha_{i,t} \mathbf{h}_v \\  
+\mathbf{q}^{*}_t = \mathbf{q}_t \, \Vert \, \mathbf{r}_t
+\end{matrix}
 ```
+
 where $\mathbf{q}^{*}_T$ defines the output of the layer with twice
 the dimensionality as the input.
+
 ```
 Parameters
 ----------
